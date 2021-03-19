@@ -11,7 +11,11 @@
     </head>
     <body>
         <a-scene>
-            <a-sphere position="0.5 1 -3" radius="1.5" color="#FFFF00"></a-sphere>
+        <a-assets>
+            <a-asset-item id="card" src="tarot-star.glb"></a-asset-item>
+        </a-assets>
+            <a-entity gltf-model="#card" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"></a-entity>
+            <!-- <a-sphere position="0.5 1 -3" radius="1.5" color="#FFFF00"></a-sphere> -->
             <a-sky color="#000000"></a-sky>
         </a-scene>
         <script src="site.js" async defer></script>

@@ -82,3 +82,20 @@ Like:
 **VR Controller = Position + Rotation + Input + Model + Grab + Gestures**
 
 So the `<a-entity>` tag above is actually identical with the orginal `<a-sphere>` we wrote!
+
+4. Add 3D model into the scene
+
+Now we are familiar with the `<a-entity>` tag, let's put some other cool stuffs into the scene.
+
+In this workshop, we won't talk about how to create 3D model, but there are plenty of great tutorials on Youtube. Personally, I love the [beginner series](https://youtu.be/TPrnSACiTJ4) by Blender Guru, but you can definitely find the ones you like.
+
+A-frame support two types of 3D format, glTF/glb and Obj. For me, they both work in the sketch, in this workshop, we will add [a tarot card glb model](https://drive.google.com/file/d/1i6fA3Xxr2uVyNTSXj8geymaV8rL1VnQu/view?usp=sharing) into the scene. To add the model, we need to declare the asset in the scene(it's like make a list of assets in your scene), also, we will put a id attribute to the `<a-asset-item>`, so that when you call it, you can get the source by adding `gltf-model="#yourID"` to the attribute. Also, we need to set up the primitive and scale of the model. After it, you can see a beautiful card in front of you!
+
+```
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="card" src="tarot-star.glb"></a-asset-item>
+        </a-assets>
+            <a-entity gltf-model="#card" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"></a-entity>
+    </a-scene>
+```            
