@@ -78,6 +78,7 @@ In this workshop. I won't talk too much on ECS, but you can think of it as MineC
 Like:
 
 **Sphere = Geometry + position + Material**
+
 **VR Controller = Position + Rotation + Input + Model + Grab + Gestures**
 
-So The `<a-entity>` tag above is actually identical with the orginal `<a-sphere>` we wrote!
+So the `<a-entity>` tag above is actually identical with the orginal `<a-sphere>` we wrote!
