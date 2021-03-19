@@ -29,7 +29,8 @@ Open Visual Studio Code and create a new folder for this project. Create index.h
 A-frame is a HTML-based framework, so it's necessary to set up your html file. First, import the normal HTML framework by clicking `!` + `TAB`, or user HTML5-Boilerplate.
 To include A-frame into your code, put the script in the head section.
 
-`<!DOCTYPE html>
+```
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -44,4 +45,5 @@ To include A-frame into your code, put the script in the head section.
         
         <script src="site.js" async defer></script>
     </body>
-</html>`
+</html>
+```
