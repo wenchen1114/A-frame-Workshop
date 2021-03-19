@@ -22,11 +22,11 @@ and more...
 In this workshop, I will create a simple scene in webVR and develop a UI for webAR experience by A-frame and WebXR AR Module on Visual studio Code. 
 You can develop it on any platform you prefer.
 
-1. Create a folder and website files.
+## 1. Create a folder and website files.
 
 Open Visual Studio Code and create a new folder for this project. Create index.html, site.js, and style.css files.
 
-2. Setting up the HTML File.
+## 2. Setting up the HTML File.
 
 A-frame is a HTML-based framework, so it's necessary to set up your html file. First, import the normal HTML framework by clicking `!` + `TAB`, or user HTML5-Boilerplate.
 To include A-frame into your code, put the script in the head section.
@@ -50,7 +50,7 @@ To include A-frame into your code, put the script in the head section.
 </html>
 ```
 
-3. Let's start with adding some objects.
+## 3. Let's start with adding some objects.
 
 To create a scene, we must need to include things in `<a-scene>` tag. We can includes element tags to add objects into the scene. To adjust the object, we can add attribute in the tag.
 
@@ -83,7 +83,7 @@ Like:
 
 So the `<a-entity>` tag above is actually identical with the orginal `<a-sphere>` we wrote!
 
-4. Add 3D model into the scene
+## 4. Add 3D model into the scene
 
 Now we are familiar with the `<a-entity>` tag, let's put some other cool stuffs into the scene.
 
