@@ -23,9 +23,11 @@ In this workshop, I will create a simple scene in webVR and develop a UI for web
 You can develop it on any platform you prefer.
 
 1. Create a folder and website files.
+
 Open Visual Studio Code and create a new folder for this project. Create index.html, site.js, and style.css files.
 
 2. Setting up the HTML File.
+
 A-frame is a HTML-based framework, so it's necessary to set up your html file. First, import the normal HTML framework by clicking `!` + `TAB`, or user HTML5-Boilerplate.
 To include A-frame into your code, put the script in the head section.
 
