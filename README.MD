@@ -49,3 +49,35 @@ To include A-frame into your code, put the script in the head section.
     </body>
 </html>
 ```
+
+3. Let's start with adding some objects.
+
+To create a scene, we must need to include things in `<a-scene>` tag. We can includes element tags to add objects into the scene. To adjust the object, we can add attribute in the tag.
+
+```
+    <a-scene>
+        <a-sphere position="0.5 1 -2" radius=:"1.5" color="#FFFF00"></a-sphere>
+        <a-sky color="#000000"></a-sky>
+    </a-scene>
+```
+You can check it out by using live server. (if you don't haveit on your Visual Stdio Code, install it from extensions, or you can build up your own local server)
+Now you have your first scene in A-frame!
+
+In some of the documentation, you will see something like this:
+
+```
+<a-entity geometry="primitive: sphere; radius:1.5" 
+        material="color: #FFFF00" 
+        position="0.5 1 -2"></a-entity>
+```
+
+That's because A-frame is a three.js framework with an entity-component-system (ECS). The basic of ECS includes **Entities, Components, and Systems**, Entity is a container that components can be attached, like `<div>` tag in HTML. Components are modules or data containers that can be attached to entities, so that we can assign attribute to it. System is optional, but it can provide global scope and management.
+
+In this workshop. I won't talk too much on ECS, but you can think of it as MineCraft or Alchemy game. Each object is built by different components that assigned to entity. 
+
+Like:
+
+**Sphere = Geometry + position + Material**
+**VR Controller = Position + Rotation + Input + Model + Grab + Gestures**
+
+So The `<a-entity>` tag above is actually identical with the orginal `<a-sphere>` we wrote!
