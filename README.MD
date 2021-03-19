@@ -22,11 +22,11 @@ and more...
 In this workshop, I will create a simple scene in webVR and develop a UI for webAR experience by A-frame and WebXR AR Module on Visual studio Code. 
 You can develop it on any platform you prefer.
 
-## 1. Create a folder and website files.
+## 1. Create a folder and website files
 
 Open Visual Studio Code and create a new folder for this project. Create index.html, site.js, and style.css files.
 
-## 2. Setting up the HTML File.
+## 2. Setting up the HTML File
 
 A-frame is a HTML-based framework, so it's necessary to set up your html file. First, import the normal HTML framework by clicking `!` + `TAB`, or user HTML5-Boilerplate.
 To include A-frame into your code, put the script in the head section.
@@ -50,7 +50,7 @@ To include A-frame into your code, put the script in the head section.
 </html>
 ```
 
-## 3. Let's start with adding some objects.
+## 3. Let's start with adding some objects
 
 To create a scene, we must need to include things in `<a-scene>` tag. We can includes element tags to add objects into the scene. To adjust the object, we can add attribute in the tag.
 
@@ -98,4 +98,14 @@ A-frame support two types of 3D format, glTF/glb and Obj. For me, they both work
         </a-assets>
             <a-entity gltf-model="#card" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"></a-entity>
     </a-scene>
-```            
+```
+It's a shame that we can't see the other side of this card! Let's make a loop animation that will rotate the card. To achieve this, we can simply add an animation attribute to the tag, like this:
+
+```
+<a-entity gltf-model="#card" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"
+                animation="property:rotation; to: 0 180 0 dur: 2000; easing: linear; loop: false"></a-entity>
+```
+
+Now you'll see a tarot card fliping to the front side. Feel free to customize your own animation! You can check out [the property page](https://aframe.io/docs/1.2.0/components/animation.html#properties) for more.
+
+## Add interactions with JavasScripts
