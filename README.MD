@@ -52,7 +52,7 @@ To include A-frame into your code, put the script in the head section.
 
 ## 3. Let's start with adding some objects
 
-To create a scene, we must need to include things in `<a-scene>` tag. We can includes element tags to add objects into the scene. To adjust the object, we can add attribute in the tag.
+To create a scene, we  need to include things in `<a-scene>` tag. We can includes element tags to add objects into the scene. To adjust the object, we can add attribute in the tag.
 
 ```
     <a-scene>
@@ -96,16 +96,28 @@ A-frame support two types of 3D format, glTF/glb and Obj. For me, they both work
         <a-assets>
             <a-asset-item id="card" src="tarot-star.glb"></a-asset-item>
         </a-assets>
-            <a-entity gltf-model="#card" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#card" id="star" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"></a-entity>
     </a-scene>
 ```
 It's a shame that we can't see the other side of this card! Let's make a loop animation that will rotate the card. To achieve this, we can simply add an animation attribute to the tag, like this:
 
 ```
-<a-entity gltf-model="#card" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"
+<a-entity gltf-model="#card" id="star" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"
                 animation="property:rotation; to: 0 180 0 dur: 2000; easing: linear; loop: false"></a-entity>
 ```
 
 Now you'll see a tarot card fliping to the front side. Feel free to customize your own animation! You can check out [the property page](https://aframe.io/docs/1.2.0/components/animation.html#properties) for more.
 
-## Add interactions with JavasScripts
+## 5. Add interactions with JavasScripts
+
+It's time to add more fun. Now we are going to create a button that will turn this card around, and when the button is clicked, the button will turn green. To make this, first, we need to add a box as a button into the scene. Also, we need a "cursor" that can interact with the objects. Here we use a fuse-control cursor that will click when gaze at a object for a certain amount of time. 
+
+```
+    <a-entity camera look-controls position="0 1.6 0">
+                <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive:ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: #ffffff"></a-entity>
+    </a-entity>
+    <a-entity gltf-model="#card" id="star" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"></a-entity>
+    <a-box position="0.3 1.5 -1" id="button" width="0.2" height="0.1" depth="0.05" color="#FF0000"></a-box>
+    <a-sky color="#000000"></a-sky>
+```
+

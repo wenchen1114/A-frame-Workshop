@@ -14,9 +14,11 @@
         <a-assets>
             <a-asset-item id="card" src="tarot-star.glb"></a-asset-item>
         </a-assets>
-            <a-entity gltf-model="#card" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"
-                animation="property:rotation; to: 0 180 0 dur: 2000; easing: linear; loop: false"></a-entity>
-            <!-- <a-sphere position="0.5 1 -3" radius="1.5" color="#FFFF00"></a-sphere> -->
+            <a-entity camera look-controls position="0 1.6 0">
+                <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive:ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: #ffffff"></a-entity>
+            </a-entity>
+            <a-entity gltf-model="#card" id="star" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"></a-entity>
+            <a-box position="0.3 1.5 -1" id="button" width="0.2" height="0.1" depth="0.05" color="#FF0000"></a-box>
             <a-sky color="#000000"></a-sky>
         </a-scene>
         <script src="site.js" async defer></script>
