@@ -110,14 +110,93 @@ Now you'll see a tarot card fliping to the front side. Feel free to customize yo
 
 ## 5. Add interactions with JavasScripts
 
-It's time to add more fun. Now we are going to create a button that will turn this card around, and when the button is clicked, the button will turn green. To make this, first, we need to add a box as a button into the scene. Also, we need a "cursor" that can interact with the objects. Here we use a fuse-control cursor that will click when gaze at a object for a certain amount of time. 
+It's time to add more fun. Now we are going to create a button that will turn this card around, and when the button is clicked, the button will turn green. To make this, first, we need to add a plane as a button into the scene. Also, we need a "cursor" that can interact with the objects. Here we use a fuse-control cursor that will click when gaze at a object for a certain amount of time. 
 
 ```
     <a-entity camera look-controls position="0 1.6 0">
-                <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive:ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: #ffffff"></a-entity>
+        <a-entity cursor="fuse: true; fuseTimeout: 2000" position="0 0 -1" geometry="primitive:ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: #ffffff"></a-entity>
     </a-entity>
-    <a-entity gltf-model="#card" id="star" position="0 1.6 -2.5" scale="1 1 1" rotation="0 0 0"></a-entity>
-    <a-box position="0.3 1.5 -1" id="button" width="0.2" height="0.1" depth="0.05" color="#FF0000"></a-box>
-    <a-sky color="#000000"></a-sky>
+    <a-plane position="0.4 1.5 -1" id="button" width="0.4" height="0.1"  color="#FF0000" link="href: https://www.google.com/">
+        <a-text value="Show the card" position="-0.15 0 0" color="#ffffff" width="1" ></a-text>
+    </a-plane>
 ```
 
+To test if the cursor really work, let's make a really quick experiment: add link="href: https://www.google.com/" in your text tag like below, and when you put your cursor on the text, you will see the page is automatically directed to Google front page.
+
+```
+<a-text value="Show the card" position="-0.15 0 0" color="#ffffff" width="1" link="href: https://www.google.com/"></a-text>
+```
+
+But how about making cursor trigger an event? At the first part of this workshop, we talked about the three elements of A-frame: Entities, Components, and Systems, and components are like the attributes that makes the object cooler. So to make the object interactive, we can write our own component in JavaScript, and then use it in HTML. In A-frame, we register the component like this:
+
+```
+//from A-frame Documentation: https://aframe.io/docs/1.2.0/introduction/writing-a-component.html#registering-the-component-with-aframe-registercomponent
+AFRAME.registerComponent('hello-world', {
+  init: function () {
+    console.log('Hello, World!');
+  }
+})
+```
+
+And in HTML, you can add the component to HTML tag like this:
+
+```
+<a-scene>
+  <a-entity hello-world></a-entity>
+</a-scene>
+```
+
+check your inspector(right click on your browser), do you see the hello world message in the console? Let's get deeper from here. We are going to turn the button green when cursor hover on it, and turn back to red when the cursor hovers out. To make this, we will develop our component a bit further, like this:
+
+```
+AFRAME.registerComponent('turngreen', {
+    init: function () {
+      this.el.addEventListener('mouseenter', function(e){
+        this.setAttribute('color', '#00FF00')
+      })
+    }
+  })
+```
+
+This may looks a bit complicated, but it means that I register a component called "turngreen", and when it's initialized, it will start to listen the mouseenter event - which means that when the mouse is hovering on the button, it will do something. so the something is - I will set the color attribute, which is originally red, to green. I can also create a component called "turnred" make the button color back to red when hovering is over.
+
+```
+AFRAME.registerComponent('turngreen', {
+    init: function () {
+      this.el.addEventListener('mouseenter', function(e){
+        this.setAttribute('color', '#00FF00')
+      })
+    }
+  })
+
+  AFRAME.registerComponent('turnred', {
+    init: function () {
+      this.el.addEventListener('mouseleave', function(e){
+        this.setAttribute('color', '#FF0000')
+      })
+    }
+  })
+  ```
+After finishing the component, add them to your html tag:
+
+```
+<a-plane turnred turngreen position="0.4 1.5 -1" id="button" width="0.4" height="0.1"  color="#FF0000">
+        <a-text value="Show the card" position="-0.15 0 0" color="#ffffff" width="1" ></a-text>
+    </a-plane>
+```
+Save your file and refresh the page, a cool hover interaction is done! now let's add the animation we created before into turngreen, like this:
+
+```
+let star = document.getElementById("star");
+
+AFRAME.registerComponent('turngreen', {
+    init: function () {
+      this.el.addEventListener('mouseenter', function(e){
+        this.setAttribute('color', '#00FF00')
+        star.setAttribute('animation', 'property:rotation; to: 0 180 0 dur: 2000; easing: linear; loop: false');
+      })
+    }
+  })
+```
+
+and you have the final result! I hope this tutorial is fun and helpful for you. If you have any question or want to see more tutorial, please contact me at kwc354@nyu.edu, I'm happy to have a chat with you!
