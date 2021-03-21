@@ -63,6 +63,8 @@ To create a scene, we  need to include things in `<a-scene>` tag. We can include
 You can check it out by using live server. (if you don't haveit on your Visual Stdio Code, install it from extensions, or you can build up your own local server)
 Now you have your first scene in A-frame!
 
+![A yellow sphere in the black universe](/workshop-photos/Capture-1.PNG)
+
 In some of the documentation, you will see something like this:
 
 ```
@@ -108,6 +110,8 @@ It's a shame that we can't see the other side of this card! Let's make a loop an
 
 Now you'll see a tarot card fliping to the front side. Feel free to customize your own animation! You can check out [the property page](https://aframe.io/docs/1.2.0/components/animation.html#properties) for more.
 
+![A tarot in the black universe](/workshop-photos/Capture-2.PNG)
+
 ## 5. Add interactions with JavasScripts
 
 It's time to add more fun. Now we are going to create a button that will turn this card around, and when the button is clicked, the button will turn green. To make this, first, we need to add a plane as a button into the scene. Also, we need a "cursor" that can interact with the objects. Here we use a fuse-control cursor that will click when gaze at a object for a certain amount of time. 
@@ -116,12 +120,14 @@ It's time to add more fun. Now we are going to create a button that will turn th
     <a-entity camera look-controls position="0 1.6 0">
         <a-entity cursor="fuse: true; fuseTimeout: 2000" position="0 0 -1" geometry="primitive:ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: #ffffff"></a-entity>
     </a-entity>
-    <a-plane position="0.4 1.5 -1" id="button" width="0.4" height="0.1"  color="#FF0000" link="href: https://www.google.com/">
+    <a-plane position="0.4 1.5 -1" id="button" width="0.4" height="0.1"  color="#FF0000">
         <a-text value="Show the card" position="-0.15 0 0" color="#ffffff" width="1" ></a-text>
     </a-plane>
 ```
 
 To test if the cursor really work, let's make a really quick experiment: add link="href: https://www.google.com/" in your text tag like below, and when you put your cursor on the text, you will see the page is automatically directed to Google front page.
+
+![A yellow sphere with a button and cursor in the black universe](/workshop-photos/Capture-3.PNG)
 
 ```
 <a-text value="Show the card" position="-0.15 0 0" color="#ffffff" width="1" link="href: https://www.google.com/"></a-text>
