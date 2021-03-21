@@ -2,6 +2,8 @@
 By Wen Chen, 2021
 
 ## What is Prototyping?
+> “A question rendered as an artifact.” - Scott Klemmer
+
 
 ## What are the common tools for AR/VR prototyping?
 - A-frame
