@@ -1,11 +1,13 @@
 # AR/VR Prototyping with A-frame
-By Wen Chen, 2021
+By Wen Chen, ITP, NYU 2021
 
 ## What is Prototyping?
 > “A question rendered as an artifact.” - Scott Klemmer
 
+Prototyping is quick and effective way to capture your conecpts and have a chance to test with your potential audience to identify the usability problem and any other issues. Designers/Prototypers can use prototypes to validate their design, prove the possibility of certain technology, or even just for better presentation.
 
 ## What are the common tools for AR/VR prototyping?
+- Paper (Yes, Paper)
 - A-frame
 - Figma
 - Spark AR
