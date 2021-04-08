@@ -19,11 +19,11 @@ and more...
 
 
 ## What is A-frame and why use it?
-> A-Frame is a web framework for building virtual reality (VR) experiences. A-Frame is based on top of HTML, making it simple to get started...A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Daydream, GearVR, Cardboard, Oculus Go, and can even be used for augmented reality. Although A-Frame supports the whole spectrum, A-Frame aims to define fully immersive interactive VR experiences that go beyond basic 360° content, making full use of positional tracking and controllers.
-*From A-frame Introduction Page*
+> [A-Frame](https://aframe.io/) is a web framework for building virtual reality (VR) experiences. A-Frame is based on top of HTML, making it simple to get started...A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Daydream, GearVR, Cardboard, Oculus Go, and can even be used for augmented reality. Although A-Frame supports the whole spectrum, A-Frame aims to define fully immersive interactive VR experiences that go beyond basic 360° content, making full use of positional tracking and controllers.
+*From A-frame Introduction Page* [Link](https://aframe.io/docs/1.2.0/introduction/)
 
 ## Let's start it!
-In this workshop, I will create a simple scene in webVR and develop a UI for webAR experience by A-frame and WebXR AR Module on Visual studio Code. 
+In this workshop, I will create a simple scene in webVR and develop a UI for webVR experience by A-frame on Visual studio Code. 
 You can develop it on any platform you prefer.
 
 ## 1. Create a folder and website files
@@ -60,7 +60,7 @@ To create a scene, we  need to include things in `<a-scene>` tag. We can include
 
 ```
     <a-scene>
-        <a-sphere position="0.5 1 -2" radius=:"1.5" color="#FFFF00"></a-sphere>
+        <a-sphere position="0.5 1 -2" radius="1.5" color="#FFFF00"></a-sphere>
         <a-sky color="#000000"></a-sky>
     </a-scene>
 ```
